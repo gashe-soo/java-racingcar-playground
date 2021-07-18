@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
 
@@ -31,6 +32,23 @@ public class StringCalculatorTest {
         assertThat(StringCalculator.calculate("1,2:3")).isEqualTo(6);
     }
 
+    @Test
+    void 기본구분자외_커스텀_구분자_지정(){
+        assertThat(StringCalculator.calculate("//;\\n1;2;3")).isEqualTo(6);
+    }
+
+    @Test
+    void 기본구분자와_커스텀_구분자_지정_같이_사용(){
+        assertThat(StringCalculator.calculate("//;\\n1,2;3")).isEqualTo(6);
+    }
+
+    @Test
+    void 숫자이외_값_음수_전달시_예외(){
+        assertThrows(RuntimeException.class, ()->StringCalculator.calculate("hello"));
+        assertThrows(RuntimeException.class, ()->StringCalculator.calculate("-1"));
+        assertThrows(RuntimeException.class, ()->StringCalculator.calculate("\\hello"));
+        assertThrows(RuntimeException.class, ()->StringCalculator.calculate("1,-2:3"));
+    }
 
 
 }
