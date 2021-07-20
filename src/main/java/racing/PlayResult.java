@@ -20,9 +20,13 @@ public class PlayResult {
         return roundResults.size();
     }
 
+    public List<RoundResult> getRoundResults() {
+        return roundResults;
+    }
+
     public String getWinner() {
         int size = getSize();
-        RoundResult lastResult = roundResults.get(size-1);
+        RoundResult lastResult = roundResults.get(size - 1);
         return lastResult.getRoundWinner().stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(","));

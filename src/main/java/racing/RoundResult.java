@@ -1,6 +1,7 @@
 package racing;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,9 +13,13 @@ public class RoundResult {
         this.round = result;
     }
 
+    public List<Car> getRound() {
+        return round;
+    }
+
     public List<Car> getRoundWinner(){
         int maxPosition = round.stream()
-                .max((c1,c2)-> Integer.compare(c1.getNowPosition(), c2.getNowPosition()))
+                .max(Comparator.comparingInt(Car::getNowPosition))
                 .get().getNowPosition();
 
         return round.stream()

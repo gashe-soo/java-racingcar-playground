@@ -25,12 +25,15 @@ public class RacingGame {
     public PlayResult play() {
         PlayResult result = new PlayResult();
         for(int i=0;i<times;i++){
+            List<Car> temp = new ArrayList<>();
             for(Car car : cars){
                 int distance = numberGenerator.generate();
                 car.go(distance);
-
+                Car newCar = new Car(car.getName());
+                newCar.go(car.getNowPosition());
+                temp.add(newCar);
             }
-            result.addResult(new RoundResult(cars));
+            result.addResult(new RoundResult(temp));
         }
 
         return result;
