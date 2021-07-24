@@ -36,7 +36,4 @@ public class CarTest {
         assertThat(car.getNow()).isEqualTo(expected);
     }
 
-
-
-
 }

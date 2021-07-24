@@ -4,20 +4,20 @@ public class Car {
 
     private static final int HURDLE = 4;
     private Name name;
-    private int pos;
+    private Position pos;
 
     public Car(String name) {
         this.name = new Name(name);
-        this.pos = 0;
+        this.pos = new Position();
     }
 
     public void move(int number) {
         if(number>=HURDLE){
-            pos++;
+            pos = pos.add(1);
         }
     }
 
     public int getNow() {
-        return pos;
+        return pos.now();
     }
 }
