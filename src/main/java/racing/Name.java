@@ -9,8 +9,11 @@ public final class Name {
     }
 
     private void validateName(String name) {
+        if(name == null || name.isEmpty())
+            throw new IllegalArgumentException("이름은 공백일 수 없습니다.");
         if(name.length()>5)
             throw new IllegalArgumentException("이름은 5자이하이어야 합니다.");
+
     }
 
 
