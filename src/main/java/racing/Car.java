@@ -12,7 +12,7 @@ public class Car {
     }
 
     public void move(int number) {
-        if(number>=HURDLE){
+        if (number >= HURDLE) {
             pos = pos.add(1);
         }
     }
