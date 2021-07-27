@@ -23,9 +23,9 @@ public class CarsTest {
     void 우승자_판별_기능() {
         Cars cars = new Cars("one,two,three");
         cars.move(Arrays.asList(1, 4, 5));
-        List<Name> result = cars.getWinners();
+        List<String> result = cars.getWinners();
         assertThat(result.size()).isEqualTo(2);
-        assertThat(result).contains(new Name("two"), new Name("three"));
+        assertThat(result).contains(new String("two"), new String("three"));
     }
 
 

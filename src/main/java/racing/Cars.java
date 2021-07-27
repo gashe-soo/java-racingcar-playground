@@ -28,7 +28,7 @@ public class Cars {
         return cars;
     }
 
-    public List<Name> getWinners() {
+    public List<String> getWinners() {
         int winnerPosition = cars.stream()
                 .max(Comparator.comparingInt(Car::getNow))
                 .get()
@@ -38,5 +38,9 @@ public class Cars {
                 .filter(car -> car.getNow()==winnerPosition)
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    public int getSize() {
+        return cars.size();
     }
 }
