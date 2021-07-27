@@ -6,7 +6,7 @@ public final class Position {
 
     private final int pos;
 
-    public Position(){
+    public Position() {
         this(0);
     }
 
@@ -15,10 +15,10 @@ public final class Position {
     }
 
     public Position add(int distance) {
-        return new Position(pos+distance);
+        return new Position(pos + distance);
     }
 
-    public int now(){
+    public int now() {
         return pos;
     }
 

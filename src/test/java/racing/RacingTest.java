@@ -26,4 +26,5 @@ public class RacingTest {
                 .withMessageContaining("라운드는 10회 이하이어야 합니다.");
     }
 
+
 }
