@@ -17,6 +17,10 @@ public class Car {
         }
     }
 
+    public Name getName() {
+        return name;
+    }
+
     public int getNow() {
         return pos.now();
     }
